@@ -11,7 +11,7 @@ from arcpy import env
 # Set environment settings
 env.workspace = "C:/data"
 
-whereclause="'Subid' = '%s'" % str(i)
 for i in range(0,5):
-  arcpy.SelectLayerByAttribute_management("texas_thiessen_albers_final", "NEW_SELECTION", 
-whereclause)
+  whereclause= '"Subid" = %s' % str(i)
+  arcpy.SelectLayerByAttribute_management("texas_thiessen_albers_final", "NEW_SELECTION", whereclause)
+  arcpy.CopyFeatures_management("texas_thiessen_albers_final", Output path + file root name +str(i) + ".shp")
