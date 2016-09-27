@@ -3,5 +3,7 @@ Create the PM maps
 1. Split thiessen grids
 The Texas map is made of 688920 1-km grids. Too much computation load if the 688920 grids are processed at the same time. I decided to split them in to individual parts. Each part have 5000 1-km grids.
  
-  a. Open the attribute table, add a field called "Subid"
-  b. Use "Field Calculator", give the "Subid" a number. The equation is Subid = Abs(FID/5000)
+  a. Sort attribute table by x and y.
+  b. Open the attribute table, add a field called "Subid"
+  c. Use "Field Calculator", give the "Subid" a number. The equation is Subid = Abs(FID/5000)
+  d. Dissolve the entire grid.
